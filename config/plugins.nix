@@ -31,5 +31,20 @@
     };
 
     telescope.enable = true;
+
+    none-ls = {
+      enable = true;
+      sources = {
+        formatting = {
+          nixpkgs_fmt.enable = true;
+        };
+        completion = {
+          luasnip.enable = true;
+          spell.enable = true;
+        };
+      };
+    };
+
+    luasnip.enable = true;
   };
 }
