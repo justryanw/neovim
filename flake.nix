@@ -33,14 +33,12 @@
           nvim = nixvim'.makeNixvimWithModule nixvimModule;
         in
         {
-          checks = {
-            # Run `nix flake check .` to verify that your config is not broken
-            default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-          };
+          checks.default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
 
-          packages = {
-            # Lets you run `nix run .` to start nixvim
-            default = nvim;
+          packages.default = nvim;
+
+          devShells.default = pkgs.mkShell {
+            buildInputs = [ nvim ];
           };
         };
     };
