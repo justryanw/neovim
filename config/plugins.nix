@@ -1,15 +1,19 @@
 {
-  plugins.lsp = {
-    enable = true;
+  plugins = {
+    lsp = {
+      enable = true;
 
-    servers = {
-      rust-analyzer = {
-        enable = true;
-        installCargo = false;
-        installRustc = false;
+      servers = {
+        rust-analyzer = {
+          enable = true;
+          installCargo = false;
+          installRustc = false;
+        };
+
+        nixd.enable = true;
       };
-
-      nixd.enable = true;
     };
+
+    bufferline.enable = true;
   };
 }
